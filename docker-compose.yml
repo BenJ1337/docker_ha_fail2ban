@@ -1,0 +1,19 @@
+services:
+  f2b:
+    image: crazymax/fail2ban:latest
+    container_name: f2b
+    restart: unless-stopped
+    volumes:
+      - ./conf/jail.local:/data/jail.d/jail.local:ro
+      - ./conf/nginx-filter.conf:/etc/fail2ban/filter.d/nginx-filter.conf:ro
+      - ./conf/nginx-action.conf:/etc/fail2ban/action.d/nginx-action.conf:ro
+      - nginx_logs:/var/log/nginx/:ro
+      - f2b:/f2b_data
+      - /etc/localtime:/etc/localtime:ro
+    environment:
+      TZ: "Europe/Berlin"
+volumes:
+  nginx_logs:
+    external: true
+  f2b:
+    external: true

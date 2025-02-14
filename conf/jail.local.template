@@ -1,0 +1,9 @@
+# https://github.com/fail2ban/fail2ban/blob/master/config/jail.conf
+[nginx-ha]
+enabled = true
+logpath = /var/log/nginx/<your-logfile>.log
+filter = nginx-filter
+action = nginx-action
+bantime = 600
+findtime = 600
+maxretry = 10
