@@ -1,0 +1,17 @@
+services:
+  fail2ban:
+    image: crazymax/fail2ban:latest
+    restart: unless-stopped
+    volumes:
+      - ./conf/jail.local:/data/jail.d/jail.local:ro
+      - ./conf/nginx-filter.conf:/etc/fail2ban/filter.d/nginx-filter.conf:ro
+      - ./conf/nginx-action.conf:/etc/fail2ban/action.d/nginx-action.conf:ro
+      - ha_nginx_logs:/var/log/nginx/:ro
+      - ha_f2b:/f2b_data
+    environment:
+      TZ: "Europe/Berlin"
+volumes:
+  ha_nginx_logs:
+    external: true
+  ha_f2b:
+    external: true

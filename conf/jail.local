@@ -1,0 +1,8 @@
+[nginx-botsearch]
+enabled = true
+logpath = /var/log/nginx/acc.log
+filter = nginx-filter
+action = nginx-action
+bantime = 600
+findtime = 600
+maxretry = 10
