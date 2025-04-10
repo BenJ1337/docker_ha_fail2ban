@@ -6,4 +6,12 @@ filter = nginx-filter
 action = nginx-action
 bantime = 600
 findtime = 600
-maxretry = 10
+maxretry = 5
+[basic-auth]
+enabled = true
+logpath = /var/log/nginx/<your-logfile>.log
+filter = basic-auth-filter
+action = nginx-action
+bantime = 600
+findtime = 600
+maxretry = 5

@@ -6,6 +6,7 @@ services:
     volumes:
       - ./conf/jail.local:/data/jail.d/jail.local:ro
       - ./conf/nginx-filter.conf:/etc/fail2ban/filter.d/nginx-filter.conf:ro
+      - ./conf/basic-auth-filter.conf:/etc/fail2ban/filter.d/basic-auth-filter.conf:ro
       - ./conf/nginx-action.conf:/etc/fail2ban/action.d/nginx-action.conf:ro
       - nginx_logs:/var/log/nginx/:ro
       - f2b:/f2b_data
